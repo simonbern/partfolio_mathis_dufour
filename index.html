@@ -15,8 +15,8 @@
         }
 
         .top-image-container img {
-            max-width: 50%; /* Adjust as needed */
-            max-height: 100%;
+            max-width: 80%; /* Adjust as needed */
+            max-height: 90%;
             box-shadow: none;
             object-fit: contain;
         }
@@ -238,27 +238,27 @@
     <div class="container">
         <div class="image-container" id="section1">
             <img id="img1" src="fronthoodgif.gif" alt="Image 1">
-            <div class="caption">Caption for Image 1</div>
+            <div class="caption"></div>
         </div>
 
         <div class="image-container" id="section2">
             <img id="img2" src="sidehoodgif.gif" alt="Image 2">
-            <div class="caption">Caption for Image 2</div>
+            <div class="caption"></div>
         </div>
 
         <div class="image-container" id="section3">
             <img id="img3" src="backhoodgif.gif" alt="Image 3">
-            <div class="caption">Caption for Image 3</div>
+            <div class="caption"></div>
         </div>
 
         <div class="image-container" id="section4">
             <img id="img4" src="devantrobegif.gif" alt="Image 4">
-            <div class="caption">Caption for Image 4</div>
+            <div class="caption"></div>
         </div>
 
         <div class="image-container" id="section5">
             <img id="img5" src="siderobegif.gif" alt="Image 5">
-            <div class="caption">Caption for Image 5</div>
+            <div class="caption"></div>
         </div>
     </div>
 
@@ -310,14 +310,18 @@
         dropdownLinks.forEach(link => {
             link.addEventListener('click', (event) => {
                 event.preventDefault();
-                // Get the target section from the href attribute
                 const targetSection = document.querySelector(link.getAttribute('href'));
 
-                // Smoothly scroll to the target section and center it in the viewport
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
-                    block: 'center' // This ensures the section is centered in the viewport
+                    block: 'center'
                 });
+
+                document.querySelector('.dropdown-content').style.display = 'none'; // Hide dropdown after clicking
+
+                setTimeout(() => {
+                    document.querySelector('.dropdown-content').style.display = ''; // Restore dropdown after a short delay
+                }, 500);
 
             document.querySelector('.back-to-top').addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default behavior (jump to top)
